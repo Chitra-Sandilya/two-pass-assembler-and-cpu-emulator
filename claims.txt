@@ -1,0 +1,48 @@
+
+
+Declaration:
+I, Chitra Sandilya, declare that these source files are my own work.
+
+Files Included:
+  src/asm.c                     Two-pass assembler
+  src/emu.c                     Virtual CPU emulator
+  examples/bubblesort.asm       Bubble sort showcase program (+ .lst and .log outputs)
+  app/                          Full-stack web interface for assembling and running code
+  claims.txt                    Project overview and feature claims
+
+GENERAL:
+- Source files carry my name, roll number, and declaration of authorship.
+- Compiles without errors with -std=c89 -pedantic.
+- Compiles without warnings with -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes.
+- Consistent formatting and sensible program structure.
+- Sensible names for variables, functions, and types, with explanatory comments.
+
+Features Implemented & Claims:
+
+1. Assembler (asm.c):
+   - Two-pass assembly process (single routine used for both passes).
+   - Label error diagnosis (duplicate, undefined, and bogus label names).
+   - Table of instruction names and operand types with mnemonic verification.
+   - Comprehensive error and warning reporting (including unused labels and backward jump warnings).
+   - Supports arithmetic extensions (mul, div) and directives (SET, data).
+   - Generation of little-endian 32-bit binary object (.o) and text listing (.lst) files.
+
+2. Emulator (emu.c):
+   - Loads binary object (.o) files into simulated RAM.
+   - Implements complete instruction set execution, register management (A, B, PC, SP), and memory bounds checking.
+   - Supports execution tracing (-trace) and memory state dumps before and after execution (-before, -after).
+   - Executes mul and div instructions, including runtime division-by-zero detection.
+   - Detects errant programs and terminates cleanly with diagnostic messages for:
+       * Division by zero
+       * Unknown opcode
+       * PC outside the loaded program (e.g., missing HALT)
+       * Memory access outside the machine
+       * Shift count outside 0..31
+       * Too many instructions executed (probable infinite loop)
+
+3. Custom Bubble Sort Showcase (bubblesort.asm):
+   - Assembles cleanly with asm.c into binary machine code and a listing file.
+   - Executes on emu.c to sort the array [34, 12, 54, 2, 18] in-place into [2, 12, 18, 34, 54].
+
+4. Web Application (app/):
+   - Full-stack interface providing a browser-based workflow to write assembly programs, assemble them, and inspect register/memory execution outputs.

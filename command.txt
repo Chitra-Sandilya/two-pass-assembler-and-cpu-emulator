@@ -1,0 +1,14 @@
+gcc asm.c -o asm.exe
+gcc emu.c -o emu.exe
+
+for no warnings check
+
+gcc -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes asm.c -o asm.exe
+gcc -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes emu.c -o emu.exe
+
+to generate files
+.\asm.exe mytest01.asm
+.\emu.exe mytest01.o
+
+for bubble sort
+.\emu.exe -after bubblesort.o

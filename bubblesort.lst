@@ -1,0 +1,61 @@
+    N          SET 5
+0000  FFFFFB0A  adj   -5        
+0001  00000500  ldc   N         
+0002  FFFFFF01  adc   -1        
+0003  00000003  stl   0         
+0004  00000002  ldl   0         
+0005  00002E10  brlz  endsort   
+0006  00000000  ldc   0         
+0007  00000103  stl   1         
+0008  00000002  ldl   0         
+0009  00000102  ldl   1         
+000A  00000007  sub             
+000B  0000240F  brz   endinner  
+000C  00002310  brlz  endinner  
+000D  00003600  ldc   arr       
+000E  00000102  ldl   1         
+000F  00000006  add             
+0010  00000004  ldnl  0         
+0011  00000203  stl   2         
+0012  00003600  ldc   arr       
+0013  00000102  ldl   1         
+0014  00000006  add             
+0015  00000101  adc   1         
+0016  00000004  ldnl  0         
+0017  00000303  stl   3         
+0018  00000202  ldl   2         
+0019  00000302  ldl   3         
+001A  00000007  sub             
+001B  00001010  brlz  noswap    
+001C  00000F0F  brz   noswap    
+001D  00003600  ldc   arr       
+001E  00000102  ldl   1         
+001F  00000006  add             
+0020  00000403  stl   4         
+0021  00000302  ldl   3         
+0022  00000402  ldl   4         
+0023  00000005  stnl  0         
+0024  00003600  ldc   arr       
+0025  00000102  ldl   1         
+0026  00000006  add             
+0027  00000101  adc   1         
+0028  00000403  stl   4         
+0029  00000202  ldl   2         
+002A  00000402  ldl   4         
+002B  00000005  stnl  0         
+002C  00000102  ldl   1         
+002D  00000101  adc   1         
+002E  00000103  stl   1         
+002F  FFFFD811  br    innerloop  WARN: Line 71: possible infinite loop (backward jump)
+0030  00000002  ldl   0         
+0031  FFFFFF01  adc   -1        
+0032  00000003  stl   0         
+0033  FFFFD011  br    outerloop  WARN: Line 77: possible infinite loop (backward jump)
+0034  0000050A  adj   5         
+0035  00000012  halt            
+0036  00000022  data  34        
+0037  0000000C  data  12        
+0038  00000036  data  54        
+0039  00000002  data  2         
+003A  00000012  data  18        
+WARN: Label 'start' defined but never used
